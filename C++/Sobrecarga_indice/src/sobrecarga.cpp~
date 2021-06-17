@@ -1,0 +1,13 @@
+
+// Sobrecarga de índice de um vetor
+
+#include <iostream>
+#include <stdlib.h> // função exit()
+using namespace std;
+
+class Vetor{
+  private:
+  int *vet, *vet_pos;
+  int max;
+  
+};

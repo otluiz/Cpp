@@ -1,0 +1,19 @@
+// reverte os elementos de uma lista
+#include <iostram>
+#include <list>
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+  list<int> mylist;
+
+  for (i = 1; i < 10; ++i) mylist.push_back(i);
+    
+  cout << "mylist contém:";
+  for (list<int>::iterator it = mylist.end(); it != mylist.begin(), --it)
+    cout << ' ' << *it;
+
+  cout << "\n";
+
+  return 0;
+}

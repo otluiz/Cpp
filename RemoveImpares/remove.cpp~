@@ -1,0 +1,17 @@
+// remove if exemplo
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+bool IsOdd (int i) { return ((i % 2) == 1); }
+
+int main(int argc, char *argv[])
+{
+  int meuInsts = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+  //limites
+
+    
+  return 0;
+}

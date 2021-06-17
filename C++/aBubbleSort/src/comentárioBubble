@@ -1,0 +1,4 @@
+ * Este algoritmo troca o elemento com seu vizinho (borbulhando), caso o elemento seja maior que este vizinho (se for em ordem
+ * crescente).
+ * E assim sucessivamente, "empurrando" o maior elemento até a última posição da sequência.
+ * Na próxima iteração repetirá o procedimento sem a participação do último elemento.

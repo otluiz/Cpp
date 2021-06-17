@@ -1,0 +1,6 @@
+##
+## Classe Perceptron para classificar dados simples
+##
+
+#include <iostream>
+using namespace std;

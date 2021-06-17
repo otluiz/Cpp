@@ -1,0 +1,20 @@
+#include <iostram>
+
+using namespace std;
+
+struct pessoa {
+  char nome[100];
+  int idade;
+};
+
+int main(int argc, char* argv[]{
+    //struct pessoa
+    pessoa p;
+    p.idade = 20;
+
+    cout << p.idade << endl;
+
+    return 0;
+}
+  
+  

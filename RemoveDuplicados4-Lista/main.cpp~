@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool iguais (int num1, int num2) { return (num1 == num2); }
+
+
+int main()
+{
+  int meusInteiros[] = {10,20,20,20,30,30,20,20,10};
+  vector<int> meuVetor (9);
+  
+  // limites do intervalo
+  vector<int>::iterator it;
+  it = unique_copy(meusInteiros, meusInteiros+9, meuVetor.begin());
+
+  sort (meuVetor.begin(), it);
+  
+  int* pbegin = meusInteiros;
+  int* pend = meusInteiros + sizeof(meusInteiros)/sizeof(int);
+
+   remove_if (pbegin, pend, iguais);
+  
+  cout << "\nElementos da lista ordenados\n";
+  for (int* p = pbegin; p != pend; ++p){
+    //remove_if(pbegin, pend, iguais(*p, *p+1);
+    cout << ' ' << *p;
+	      }
+  cout << '\n';
+
+  return 0;
+}
+

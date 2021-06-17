@@ -1,0 +1,7 @@
+/* **************************************
+ * Descrição desse algoritmo
+ *
+ * Este algorimo seleciona menor de todos e coloca-o na posição 0 (ou inicial).
+ * Depois procura o segundo menor e coloca na posição 1 (seguinte a anterior).
+ * E assim sucessivamente.
+ * **********************************************

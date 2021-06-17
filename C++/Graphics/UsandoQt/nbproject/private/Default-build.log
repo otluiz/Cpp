@@ -1,0 +1,7 @@
+/usr/bin/g++ -c -g3 -gdwarf-2 -O2 -Wall -W -D_REENTRANT -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED -I/usr/share/qt4/mkspecs/linux-g++-64 -I. -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtGui -I/usr/include/qt4 -I. -I. -o main.o main.cpp
+main.cpp:1:10: fatal error: mainwindow.h: Arquivo ou diretório inexistente
+ #include "mainwindow.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+Makefile:205: recipe for target 'main.o' failed
+make: *** [main.o] Error 1
