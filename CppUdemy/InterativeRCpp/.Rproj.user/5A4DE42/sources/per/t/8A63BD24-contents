@@ -1,0 +1,126 @@
+###########################################################################################
+###########                                               #################################
+######### Informações do curso de Georreferenciamento com R ###############################
+###########                                               #################################
+###########################################################################################
+
+## Ajuste para o R abri sempre no diretório de trabalho
+setwd("/home/otluix/Workspace/R")
+
+## agora pega o diretório 'setado' pelo comando setwd
+getwd()
+
+
+
+library(maps)
+
+map("world","Brazil")
+par(mar = c(1,1,1,1)) ## aumenta, dá um Zoon, quanto menor o número maior o zoom
+map.axes(cex.axis=0.8)
+abline(h=-30, lty=2) # linha tracejada horizontal sobre o RS
+abline(v=-34.89, lty=2) # linha tracejada vertical sobre o RS
+
+map("world","Brazil")
+par(mar = c(1.5,1.5,1.5,1.5))
+map.axes(cex.axis=0.8)
+abline(h=-8.12, lty=2) # linha tracejada horizontal sobre o Recife 
+abline(v=-34.89, lty=2) # linha tracejada vertical sobre o Recife, tirada do GoogleMaps
+
+par(mar = c(0.5,0.5,0.5,0.5)) ## fazendo Zoom
+map("world", "brazil", fill = T, col = "grey")
+map(,,add = T)
+map.axes(cex.axis = 0.8)
+abline(h=-12.916636, lty=2) # linha tracejada horizontal sobre Salvador 
+abline(v=-38.440950, lty=2) # linha tracejada vertical sobre Salvador, tirada do GoogleMaps
+map.scale(ratio = F, cex = 0.6, x = -48, y = -30)
+## colocando cidades com população acima de 1,5 milhão
+map.cities(country = "Brazil", minpop = 1500000)
+
+
+map("world", "brazil", fill = T, col = "grey")
+map(,,add = T)
+map.axes(cex.axis = 0.8)
+map.scale(ratio = F, cex = 0.6, x = -48, y = -30)
+map.cities(country = "Brazil", minpop = 2500000, cex = 1.2)
+
+### Mapas usando ggplot2
+
+## instalando ggplot2
+## ggplot2 trabalha adicionando-se camadas
+
+# install.packages("ggplo2", dependencies = T)
+library(ggplot2)
+
+## chama o ggplot para adicionar um fundo e o mapa em cima, mas está sem escala
+ggplot() + borders("world", regions = "brazil", fill = "yellow")
+
+
+## coloca tudo na mesma escala
+ggplot() + borders("world", regions = "brazil", fill = "yellow") + coord_equal()
+
+## criando mapas temáticos com ggplot2 e rgdal
+#install.packages("ggplot2", dependencies = T)
+library(ggplot2)
+
+#install.packages("rgdal", dependencies = T)
+library(rgdal)
+
+## ler o arquivo com a função readOGR("caminho", nome do arquivo sem extensão")
+rj <- readOGR("/home/otluix/Cursos-OnLine/DataScience com R-Georrefenciados/rj_municipios","33MUE250GC_SIR")
+
+## Os dados da variável rj são exibidos abaixo
+#> head(rj@data)
+# NM_MUNICIP             CD_GEOCMU
+# 0     ANGRA DOS REIS   3300100
+# 1            APERIBÉ   3300159
+# 2           ARARUAMA   3300209
+# 3              AREAL   3300225
+# 4 ARMAÇÃO DOS BÚZIOS   3300233
+# 5    ARRAIAL DO CABO   3300258
+
+## Para concatenar esta base de dados com outra de (Partos Normais) vai ser retirado um dígito de CD_GEOCMU
+## e atualizado a mesma variável
+rj$CD_GEOCMU <- substr(rj$CD_GEOCMU, 1, 6)
+
+
+##-------------------------------------------------------------------------------
+## informações do segundo bando de dados -- DataSUS
+## http://tabnet.datasus.gov.br/cgi/deftohtm.exe?pacto/2013/cnv/coapmunrj.def
+##
+partos <- read.csv("/home/otluix/Cursos-OnLine/DataScience com R-Georrefenciados/partos_normaisRJ.csv", sep = ",", header = T, dec = ",")
+
+## foi preciso concatenar as colunas numéricas no libreoffice com a função concatenar
+## as últimas linhas devem ser desprezadas por conterem lixo
+partos <- partos[-(93:93),]
+
+## ajustar a variável Municipio que está com um ponto no meio do nome (Munic.pio)
+names(partos)[1] <- c("Municipio")
+
+
+## retirar agora o código do município da variável Município
+partos$codigomunicipio <- substr(partos$Municipio,1,6)
+
+## ajustar os nomes das variáveis de ligação para serem iguais (CD_GEOCMU)
+names(partos)[3] <- c("CD_GEOCMU")
+
+
+## ordenar as duas bases de dados
+partos <- partos[order(partos$CD_GEOCMU),]
+malhas <- rj@data[order(rj$CD_GEOCMU),]
+
+## fazer um MERGE entre as duas bases de dados (partos e malhas)
+rj_2 <- merge(malhas, partos, by.y =  "CD_GEOCMU")
+head(rj_2)
+
+## instalar as novas lib com suas dependencias
+install.packages("rgeos", type = 'source')
+install.packages('rgdal', type = 'source')
+install.packages("maptools", dependencies = T)
+install.packages("broom", dependencies = T)
+
+library(rgeos)
+library(maptools)
+library(broom)
+
+## pegar as informações de Geolocalização que estão em CD_GEOCMU
+rj.f <- fortify(rj, region = "CD_GEOCMU")

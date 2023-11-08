@@ -1,0 +1,1 @@
+insertionSort.d: ../insertionSort.cpp

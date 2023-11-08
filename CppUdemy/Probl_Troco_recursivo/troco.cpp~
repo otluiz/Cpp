@@ -1,0 +1,16 @@
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+  list<int> lista(1, 2, 5, 10, 20); // moedas infinitas para dar troco
+  list<int>::iterator it;
+
+  cout << "\nMostrando os elementos de lista: \n" ;
+  for (auto it = lista.begin(); it != lista.end(); ++it)
+    cout << *it << " ";
+  return 0;
+}
+

@@ -1,0 +1,28 @@
+//////////// Sobrecarga do operador+  //////////////////////
+
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+// class Complexo{
+// public:
+//   int real, imag;
+
+//   Complexo operator+(Complexo& c){
+//     this->real = real;
+//    this->imag = imag;
+//  }
+
+int main(int argc, char* argv[])
+{
+  string str = "Marcos";
+
+  cout << "String: " << str << endl;
+  cout << "Tamanho: " << str.length() << endl;
+  cout << str.at(1) << endl; //// retira a segunda letra da string Marcos Castro
+
+  str.append(" castro");
+  cout << "Nome completo: " << str << endl;
+  return 0;
+}

@@ -1,0 +1,32 @@
+/* 
+ Algoritmo Fibonnaci - ChatGPT
+*/
+#include <iostream>
+using namespace std; 
+
+int main() {
+    int n, first_term = 0, second_term = 1, next_term, counter = 1;
+
+    std::cout << "Digite o número de termos da sequência de Fibonacci: ";
+    std::cin >> n;
+
+    std::cout << "Sequência de Fibonacci até o " << n << "º termo: ";
+
+    while (counter <= n) {
+        if (counter == 1) {
+            std::cout << first_term << " ";
+        } else if (counter == 2) {
+            std::cout << second_term << " ";
+        } else {
+            next_term = first_term + second_term;
+            first_term = second_term;
+            second_term = next_term;
+            std::cout << next_term << " ";
+        }
+        counter++;
+    }
+
+    std::cout << std::endl;
+    return 0;
+}
+

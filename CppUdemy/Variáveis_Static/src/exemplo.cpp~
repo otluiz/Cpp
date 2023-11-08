@@ -1,0 +1,7 @@
+#include <iostream>
+using namespace std;
+
+int gerarID(){
+  static int ID = 0;
+  return ID++;
+}

@@ -1,0 +1,18 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+/* 
+ * Algoritmos Gulosos fazem escolhas locais na esperança de obter, ou chegar
+ * próximo de uma escolha glbal.
+ * Este algoritmos faz escolha local para o problem Six Flag, que consiste em
+ * escolher a melhor pontuação em briquedos de um parque no menor tempo possível
+ /*
+
+class Brinquedo{
+public:
+int D, P, div;
+
+
+};
+

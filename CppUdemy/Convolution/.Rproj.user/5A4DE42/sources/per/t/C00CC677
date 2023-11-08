@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1571838697030.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4045929563",
+    "id" : "C00CC677",
+    "lastKnownWriteTime" : 1571839024,
+    "last_content_update" : 1571839024113,
+    "path" : "~/Workspace/C++/Convolution/src/convolve.cpp",
+    "project_path" : "src/convolve.cpp",
+    "properties" : {
+        "cursorPosition" : "23,1",
+        "scrollLine" : "8",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "cpp"
+}

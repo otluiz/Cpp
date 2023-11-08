@@ -1,0 +1,32 @@
+[
+    {
+        "definitions" : [
+            {
+                "column" : 15,
+                "file" : "/home/otluix/Workspace/C++/Convolution/src/convolve.cpp",
+                "kind" : 6,
+                "line" : 15,
+                "name" : "convolveCpp(Rcpp::NumericVector, Rcpp::NumericVector)",
+                "parent_name" : "",
+                "usr" : "c:@F@convolveCpp#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#S0_#"
+            }
+        ],
+        "file" : "/home/otluix/Workspace/C++/Convolution/src/convolve.cpp",
+        "file_last_write" : 1571839024.000000
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 6,
+                "file" : "/home/otluix/Workspace/C++/Convolution/src/rcpp_hello_world.cpp",
+                "kind" : 6,
+                "line" : 6,
+                "name" : "rcpp_hello_world",
+                "parent_name" : "",
+                "usr" : "c:@F@rcpp_hello_world#"
+            }
+        ],
+        "file" : "/home/otluix/Workspace/C++/Convolution/src/rcpp_hello_world.cpp",
+        "file_last_write" : 1571838677.000000
+    }
+]

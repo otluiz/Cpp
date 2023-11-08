@@ -1,0 +1,25 @@
+#include <iostream>
+#include <new>
+#include <string>
+#include <stdlib.h>
+#define TAM 10
+
+using namespace std/
+
+int main(){
+
+    int vetor[TAM] = {1, 23, 44, 56, 63, 72, 84, 90, 98};
+    int valorProcurado;
+    int posicao;
+    int cont;
+
+
+    for(cont = 0; cont < TAM; cont ++){ cout << vetor[cont] << " - "; }
+
+    /*
+    cout << Qual o numero << endl;
+    cin <<
+    */
+
+    return 0;
+}

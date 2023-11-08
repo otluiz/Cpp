@@ -1,0 +1,16 @@
+#include <iostream>
+#include <list>
+using namespace std;
+
+bool eh_impar? (const int& val) { return (val % 2) == 1; }
+
+int main(int argc, char *argv[])
+{
+  list<int> mylist{1, 2, 4, 5, 3, 6, 8, 7};
+  mylist.remove_if(eh_impar?);
+
+  for (auto it = mylist.begin(); it != mylist.end(); ++it)
+    cout << ' ' << *it;
+  
+  return 0;
+}

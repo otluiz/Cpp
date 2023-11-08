@@ -1,0 +1,7 @@
+all: main
+
+main: matrix.cpp
+    g++ -o
+
+clean:
+    rm -f main

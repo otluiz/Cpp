@@ -1,0 +1,21 @@
+#include <opencv/highgui.h>
+#include <iostream>
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+  cv::Mat image;
+  image = cv::imread("sample.png", CV_LOAD_IMAGE_COLOR);
+
+  if(!image.data){
+    cout << "Não encontrei nenhuma imagem para abrir" << endl;
+    return -1;
+  }
+
+  cv::nameWindow( "Dilplay windowes", cv::WINDOW_AUTOSIZE );
+  cv::imshow( "Display image window", image );
+
+  cv::waitkey(0);
+  
+  return 0;
+}

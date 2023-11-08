@@ -1,0 +1,18 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+int main(int argc, char *argv[])
+{
+  vector<int> vet(5);
+  // vetor: -2, 5, -1, 2, -3
+  vet[0] = -2;
+  vet[1] = 5;
+  vet[2] = -1;
+  vet[3] = 2;
+  vet[4] = -3;
+  
+  return 0;
+}
+

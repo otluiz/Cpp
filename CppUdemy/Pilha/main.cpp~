@@ -1,0 +1,29 @@
+/*
+ * teste.cpp
+ *
+ *  Created on: 2 de out de 2019
+ *      Author: otluix
+ */
+
+#include <iostream>
+#include "pilha.h"
+#include <vector>
+
+using namespace std;
+
+int main(int argc, char* argv[]){
+	Pilha p;
+
+	p.empilhar(10);
+	p.empilhar(11);
+	p.empilhar(12);
+	p.desemplihar();
+
+	cout << "Pilha vazia: " << p.vazia() << endl;
+	cout << "Topo: " << p.getTopo() << endl;
+	//p.desemplihar();
+
+	return 0;
+}
+
+

@@ -1,0 +1,23 @@
+/*
+ * Sequência de Fibonacci até o n-ésimo temo,
+ * foi criado uma função que faz os cálculos.
+ * O enésimo termo é escilhido pelo usário.
+ */
+#include <iostream>
+
+using namespace std;
+
+int fibonacci(n){
+  //declaron variáveis
+  int n, pri_term = 0, seg_termo = 1, prox_termo, contar = 1;
+  if (contar == 1)
+    cout << pri_termo << " "; // imprime só o primeiro termo
+  else if (contar == 2)
+    cout << seg_termo << " "; // imprime só o segundo termo
+  else{// cáculo da sequência mesmo, os próximos termos (prox_termo)
+    prox_termo = pri_termo + seg_termo;
+    pri_termo = seg_termo;
+    seg_termo = prox_termo;
+    cout << prox_termo << " ";
+  }
+}

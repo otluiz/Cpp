@@ -1,0 +1,14 @@
+#
+#
+#
+
+void getArraySize ( int arr[], int len )
+{ printf("Array length:%d\n", len); }
+
+int main(int argc, char *argv[])
+{
+  int array[] = {1,2,3,4,5,6};
+  int len = sizeof(arr)/sizeof(arr[0]); // will return the size of array
+  getArraySize( array, len );
+  return 0;
+}

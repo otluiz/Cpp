@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+void progressaoAritmeticaSemVetor(int primeiroTermo, int razao, int quantidadeTermos) {
+    int termoAtual = primeiroTermo;
+    
+    for (int i = 0; i < quantidadeTermos; i++) {
+        cout << termoAtual << " ";
+        termoAtual += razao;
+    }
+    
+    cout << endl;
+}
+
+int main() {
+    int primeiroTermo = 2;
+    int razao = 3;
+    int quantidadeTermos = 5;
+    
+    cout << "Progressão Aritmética sem utilizar vetores: ";
+    progressaoAritmeticaSemVetor(primeiroTermo, razao, quantidadeTermos);
+    
+    return 0;
+}

@@ -1,0 +1,7 @@
+1) Numa árvore binária cada nó tem, no máximo, dois nós.
+
+2) Uma árvore binária de pesquisa, os nós à esquerda são sempre menores que o nó anterior (nó pai) que o antecede, sendo que o nó à direira é maior que o nó pai.
+
+3) O nó principal é chamado de nó raiz, e ele é o primeiro nó da árvore.
+
+4) Os últimos nós não têm filhos, por isso são chamados de nó raiz.

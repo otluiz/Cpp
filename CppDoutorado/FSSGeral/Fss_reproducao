@@ -1,0 +1,91 @@
+#include <iostream>
+#include <cmath>
+#include <random>
+
+const int populationSize = 100; // size of the fish population
+const int numberOfIterations = 1000; // number of iterations
+const int numberOfDimensions = 10; // number of dimensions of the problem
+
+double objectiveFunction(const double x[], int n)
+{
+// calculate the objective function
+double result = 0.0;
+for (int i = 0; i < n; i++)
+result += x[i] * x[i];
+return result;
+}
+
+void fishSchoolSearch(double bestSolution[])
+{
+// Initialize the fish population
+double fishes[populationSize][numberOfDimensions];
+double fitness[populationSize];
+double bestFitness = std::numeric_limits<double>::max();
+
+
+std::random_device rd;
+std::mt19937 engine(rd());
+std::uniform_real_distribution<double> distribution(-100.0, 100.0);
+
+for (int i = 0; i < populationSize; i++)
+{
+    for (int j = 0; j < numberOfDimensions; j++)
+        fishes[i][j] = distribution(engine);
+
+    fitness[i] = objectiveFunction(fishes[i], numberOfDimensions);
+
+    // update the best solution
+    if (fitness[i] < bestFitness)
+    {
+        bestFitness = fitness[i];
+        for (int j = 0; j < numberOfDimensions; j++)
+            bestSolution[j] = fishes[i][j];
+    }
+}
+
+// Main loop of Fish School Search
+for (int t = 0; t < numberOfIterations; t++)
+{
+    // Calculate the barycenter
+    double barycenter[numberOfDimensions];
+    for (int j = 0; j < numberOfDimensions; j++)
+    {
+        barycenter[j] = 0.0;
+        for (int i = 0; i < populationSize; i++)
+            barycenter[j] += fishes[i][j];
+        barycenter[j] /= populationSize;
+    }
+
+    // Feeding operator
+    for (int i = 0; i < populationSize; i++)
+    {
+        double step = distribution(engine) * 0.01;
+        for (int j = 0; j < numberOfDimensions; j++)
+            fishes[i][j] += step;
+        fitness[i] = objectiveFunction(fishes[i], numberOfDimensions);
+    }
+
+    // Breeding operator
+    for (int i = 0; i < populationSize; i++)
+    {
+        int j = (int)(distribution(engine) * populationSize);
+        if (fitness[i] > fitness[j])
+        {
+            for (int k = 0; k < numberOfDimensions; k++)
+            {
+                double temp = (fishes[i][k] + fishes[j][k]) / 2.0;
+                fishes[j][k] = temp;
+            }
+            fitness[j] = objectiveFunction(fishes[j], numberOfDimensions);
+        }
+    }
+
+
+Initialize the fish population with random positions and weights.
+Evaluate each fish's fitness.
+Apply the Feeding operator to update each fish's weight based on its fitness.
+Apply the Collective-Intensity operator to update the fish's position.
+Apply the Individual-Intensity operator to move each fish towards the better food source.
+Apply the Volitive movement operator to move the school towards better regions.
+Apply the breeding operator to generate offspring fish.
+Repeat from step 2 until a satisfactory solution is found or a maximum number of iterations is reache

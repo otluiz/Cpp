@@ -1,0 +1,28 @@
+/**
+ * Implementação de algorítimo genético para solução do problema Onemax
+ * em que a solução final sera um gene com todos os locus em 1
+ */
+
+#include <iostream>
+#include <stdlib.h>
+#include <vector>
+#include <time.h>
+using namespace std;
+
+int tam_genes = 10;
+int tam_pop = 50;
+
+
+int obterMelhor(){
+  int indice_melhor = 0;
+  int score_melhor = obterPontuacao(individuo[
+
+
+}
+
+int main(int argc, char *argv[])
+{
+  
+  return 0;
+}
+

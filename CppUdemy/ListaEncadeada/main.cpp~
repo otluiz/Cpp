@@ -1,0 +1,16 @@
+#include <iostream>
+#include "lista.h"
+
+int main(int argc, char *argv[])
+{
+  Lista<string> l;
+
+  l.inserir_final("python");
+  l.inserir_final("C++");
+  l.inserir_final("ruby");
+  l.inserir_final("haskell");
+
+  l.mostrar();
+  
+  return 0;
+}

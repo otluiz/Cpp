@@ -1,0 +1,47 @@
+/*
+ * Classe para informar sobre uma personagem simples -- isto é a posição
+ * do jogador
+ */
+
+#include <Vector>
+//#include <iostream>
+using namespace std;
+
+
+class CCharacter{
+public:
+  CCharacter() { flShotTime = -1; }
+
+public:
+  void ShotEffect(CRenderingContext* c){
+    // flShotTime gets set to the time when the character was last shot.
+    // So. when the character is shot, it will ramp up from 0 to 2pi, or
+    // 360 degrees. (We need to use radian becouse our system sin/cos
+    // fuctions use radian
+    float flTime = (Game() -> GetTime() - flShotTime) * 10;
+    if (flShotTime < 0 || flTime > 2*M_PI) return;
+
+
+  }
+public:
+  Matrix4X4 mTransform;
+  Vector vecMovement;
+  Vector vecMovementGoal;
+  Vector vecVelocity;
+  Vector vecGravity;
+  EAngle angView;
+  float flSpeed;
+  AABB aabbSize;
+
+  float flShotTime;
+};
+
+// This is the player character
+CCharacter box;
+
+// These are some other boxes
+CCharacter target1;
+CCharacter target2;
+CCharacter target3;
+
+void CGame::Load() { _iMonsterTexture = GetRenderer() -> LoadTextureIntoGL("monster.png"); }

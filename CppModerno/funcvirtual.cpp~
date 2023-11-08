@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std; 
+
+class Mae{
+public:
+  void mae(){ cout << "eu soi a mãe" << '\n';}
+};
+
+class Filha : public Mae{
+public:
+  void filha(){ cout << "eu soi a filha" << '\n';}
+};
+
+class Neta : public Filha {
+public:
+  void neta(){ cout << "eu soi a neta" << '\n';}
+};
+
+int main() { 
+ 
+ 
+  return 0; 
+} 

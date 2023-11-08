@@ -1,0 +1,19 @@
+#include <iostream>
+#include <vector>
+
+double calcular_media(const std::vector<double>& valores) {
+    double soma = 0.0;
+    for (double valor : valores) {
+        soma += valor;
+    }
+    double media = soma / valores.size();
+    return media;
+}
+
+int main() {
+    std::vector<double> notas = {7.5, 8.0, 6.5, 9.0};
+    double media_notas = calcular_media(notas);
+    std::cout << media_notas << std::endl;  // Saída: 7.75
+
+    return 0;
+}

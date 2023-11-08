@@ -1,0 +1,11 @@
+/*
+ * Este algoritmo rsolver equações
+
+ * solver.cpp >>>>> Implementação em C++ <<<<<<
+ *re
+ *  Created on: 02/03/2022
+ *      Author: otluiz
+ */
+
+#include <iostream>
+#include <cstdlib>
